@@ -1,0 +1,12 @@
+{
+    "name": "basic-app/console-logger",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\ConsoleLogger\\": ""
+        }
+    },
+    "require": {
+        "psr/log": "*"
+    }    
+}
