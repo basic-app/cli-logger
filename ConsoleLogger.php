@@ -7,7 +7,7 @@ use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
 use CodeIgniter\CLI\CLI;
 
-class PublisherLogger extends AbstractLogger
+class ConsoleLogger extends AbstractLogger
 {
 
     use LoggerTrait;
