@@ -76,6 +76,13 @@ class ConsoleLogger extends AbstractLogger
                 break;
         }
 
+        $segments = explode(': ', $message);
+
+        if (count($segments) == 2)
+        {
+            $message = CLI::color($segments[0], 'green') . ': ' . $segments[1];
+        }
+
         CLI::write($message);
     }
 
