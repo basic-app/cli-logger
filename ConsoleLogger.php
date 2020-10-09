@@ -6,6 +6,7 @@ use Psr\Log\LoggerTrait;
 use Psr\Log\AbstractLogger;
 use Psr\Log\LogLevel;
 use CodeIgniter\CLI\CLI;
+use BasicApp\PathHelper\PathHelper;
 
 class ConsoleLogger extends AbstractLogger
 {
@@ -22,6 +23,16 @@ class ConsoleLogger extends AbstractLogger
         {
             if (!is_array($value))
             {
+                $value = str_replace(PathHelper::normalize(FCPATH), 'FCPATH', $value);
+
+                $value = str_replace(PathHelper::normalize(ROOTPATH), 'ROOTPATH', $value);
+
+                $value = str_replace(PathHelper::normalize(APPPATH), 'APPPATH', $value);
+
+                $value = str_replace(PathHelper::normalize(SYSTEMPATH), 'SYSTEMPATH', $value);
+
+                $value = str_replace(PathHelper::normalize(WRITEPATH), 'WRITEPATH', $value);
+
                 $replace['{' . $key . '}'] = CLI::color($value, 'yellow');
             }
         }
